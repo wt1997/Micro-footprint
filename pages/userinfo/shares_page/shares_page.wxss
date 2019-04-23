@@ -1,0 +1,5 @@
+/* pages/shares_page/shares_page.wxss */
+.m-border{
+  border-bottom-width: 2rpx;
+  border-right-width: 2rpx;
+}

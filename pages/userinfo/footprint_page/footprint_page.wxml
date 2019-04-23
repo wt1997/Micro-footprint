@@ -1,0 +1,30 @@
+<!--pages/footprint_page/footprint_page.wxml-->
+<view>
+  <view class="cu-card case" wx:for="{{footprint}}" wx:key="id">
+    <view class="cu-item shadow" data-which='{{item.id}}' bindtap='clickFootPrint'>
+      <view class="image">
+        <image src="{{item.avatar}}" mode="widthFix"></image>
+        <view class="cu-tag bg-blue">{{item.title}}</view>
+        <view class="cu-bar bg-shadeBottom">
+          <text class="text-cut">{{item.description}}</text>
+        </view>
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url({{avatar}});"></view>
+          <view class="content flex-sub">
+            <view class="text-grey">{{item.nickname}}</view>
+            <view class="text-gray text-sm flex justify-between">
+              {{item.time}}
+              <view class="text-gray text-sm">
+                <text class="icon-attentionfill margin-lr-xs"></text> {{item.browse}}
+                <text class="icon-appreciatefill margin-lr-xs"></text> {{item.appreciate}}
+                <text class="icon-messagefill margin-lr-xs"></text> {{item.comment}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

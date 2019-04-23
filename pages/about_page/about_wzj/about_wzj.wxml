@@ -1,0 +1,6 @@
+<!--pages/about_page/about_wzj/about_wzj.wxml-->
+<view class='m-all'>
+  <view class='bg-white margin padding radius shadow-warp'>
+    <text class='introduction-wzj'>{{introduction}}</text>
+  </view>
+</view>

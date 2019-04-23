@@ -1,0 +1,50 @@
+/* pages/map_page/map_page.wxss */
+.m-all{
+  display: flex;
+}
+
+.m-cv{
+  margin-top: 260rpx;
+  margin-left: 620rpx;
+}
+
+
+.m-btn{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.m-btn{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.m-btn-f{
+  width: 90rpx;
+  height: 80rpx;
+}
+
+.none{
+  display: none;
+}
+
+
+.m-btn-a{
+  margin-top: 260rpx;
+  margin-left: 620rpx;
+}
+
+.m-btn-b{
+  margin-top: -80rpx;
+  margin-left: 480rpx;
+}
+
+.m-btn-c{
+  margin-top: -80rpx;
+  margin-left: 340rpx;
+}
+
+.m-btn-d{
+  margin-top: 60rpx;
+  margin-left: 620rpx;
+}

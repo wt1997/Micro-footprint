@@ -1,0 +1,50 @@
+<!--pages/userinfo/user_info_change/user_info_change.wxml-->
+<view class="cu-list menu">
+  <view class="m-cu-item solid-bottom">
+    <view class="content">
+      <text class="text-grey">头像</text>
+    </view>
+    <view class="action">
+      <view class="cu-avatar-group">
+        <view class="cu-avatar round m-avatar" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10004.jpg);"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-item solid-bottom">
+    <view class="content">
+      <text class="text-grey">昵称</text>
+    </view>
+    <view class="action">
+      <text class='m-text'>{{nickname}}</text>
+    </view>
+  </view>
+  <view class="cu-item" bindtap='modifySingnature'>
+    <view class="content">
+      <text class="text-grey">个性签名</text>
+    </view>
+    <view class="action">
+      <text class="m-s-text">{{signature}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName == 'show'?'show': ''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">修改签名</view>
+      <view class="action" bindtap="hideModal">
+        <text class="icon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl m-center">
+      <textarea class='m-textarea padding' maxlength='10' placeholde='{{oldsn}}' placeholder-class='m-ph-class'></textarea>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="hideModal">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

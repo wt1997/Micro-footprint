@@ -1,0 +1,111 @@
+/* pages/footprint_record/footprint_record_page/footprint_record_page.wxss */
+
+.all{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.m-placeholder{
+  color: gray;
+  font-size: 32rpx;
+}
+
+.m-recordtextarea{
+  display: flex;
+  width: 540rpx;
+  height: 250rpx;
+  margin-top: 16rpx;
+  font-size: 34rpx;
+  margin-left: 6%;
+}
+
+/*顶部返回提示*/
+
+.top-back{
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.back-image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+}
+
+.back-text{
+  font-size: 32rpx;
+  margin-left: 14rpx;
+  margin-top: 22rpx;
+}
+
+/*记录界面小标题样式*/
+
+.m-title{
+  display: flex;
+  margin-left: 0%;
+}
+
+.title-text{
+  font-size: 32rpx;
+}
+
+.title-image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+}
+
+.time-text{
+  font-size: 32rpx;
+  color: gray;
+  margin-left: 30%;
+}
+
+/*图片选择与添加*/
+.photo-bk{
+  width: 140rpx;
+  height: 140rpx;
+  background-color: rgb(218, 214, 214);
+  margin-left: 10%;
+  margin-top: 20rpx;
+}
+
+.photo-icon{
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 29%;
+  margin-top: 40rpx;
+}
+
+/*是否分享*/
+.share-or-not{
+  width: 90rpx;
+  height: 90rpx;
+  margin-top: -20rpx;
+  margin-left: 30rpx;
+}
+
+/*记录保存按钮*/
+.save-button{
+  margin-top: 20rpx;
+  margin-left: 74%;
+}
+
+.m-card{
+  background-color: white;
+  border-radius: 20rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  padding: 30rpx;
+}
+
+.t-card{
+  background-color: white;
+  border-radius: 20rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  padding: 0rpx 30rpx 0rpx 30rpx;
+}

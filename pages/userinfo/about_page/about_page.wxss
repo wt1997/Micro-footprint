@@ -1,0 +1,11 @@
+/* pages/about_page/about_page.wxss */
+.m-icon{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.m-center{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

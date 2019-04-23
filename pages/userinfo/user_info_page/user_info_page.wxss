@@ -1,0 +1,38 @@
+/* pages/user_info_page/user_info_page.wxss */
+.avatar{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 12rpx;
+}
+
+.userinfo{
+  display: flex;
+  padding: 40rpx 0rpx 60rpx 60rpx;
+  background-color: #ffffff;
+}
+
+.usertext{
+  display: flex;
+  flex-direction: column;
+  margin-left: 40rpx;
+}
+
+.nickname{
+  font-weight: bold;
+  font-size: 42rpx;
+}
+
+.userinfo-details{
+  display: flex;
+  margin-top: 20rpx;
+}
+.userid{
+  font-size: 30rpx;
+  color: gray;
+}
+
+.m-arrow{
+  width: 42rpx;
+  height: 42rpx;
+  margin-left: 64rpx;
+}

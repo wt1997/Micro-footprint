@@ -1,0 +1,12 @@
+/* pages/about_page/about_wzj/about_wzj.wxss */
+.introduction-wzj{
+  text-indent: 40rpx;
+  font-size: 40rpx;
+  color: black;
+  }
+
+  .m-all{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+  }

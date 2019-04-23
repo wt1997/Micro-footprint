@@ -1,0 +1,58 @@
+/* pages/userinfo/user_info_change/user_info_change.wxss */
+@import "/colorui/main.wxss";
+@import "/colorui/icon.wxss";
+
+.m-avatar{
+  width: 160rpx;
+  height: 160rpx;
+  font-size: 1em;
+}
+
+.cu-list.menu>.m-cu-item {
+position:relative;
+display:-webkit-flex;
+display:flex;
+padding:20rpx 30rpx;
+min-height:104px;
+background-color:#fff;
+-webkit-justify-content:space-between;
+justify-content:space-between;
+-webkit-align-items:center;
+align-items:center;
+}
+
+.m-text{
+  font-size: 36rpx;
+  color: grey;
+}
+
+.m-s-text{
+  font-size: 30rpx;
+  color: grey;
+  width: 60%;
+}
+
+.m-sig{
+  display: flex;
+  justify-content: right;
+}
+
+.m-content{
+  display: flex;
+}
+
+.m-textarea{
+  height: 100rpx;
+  font-size: 34rpx;
+  color: black;
+}
+
+.m-center{
+  display: flex;
+  justify-content: center;
+}
+
+.m-ph-class{
+  font-size: 34rpx;
+  color: gray;
+}

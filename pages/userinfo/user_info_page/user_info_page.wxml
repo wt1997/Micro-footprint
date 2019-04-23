@@ -1,0 +1,50 @@
+<!--pages/user_info_page/user_info_page.wxml-->
+<view>
+  <view class='userinfo' data-which="0" bindtap='clickList'>
+    <image class='avatar' src='{{avatar}}'></image>
+    <view class='usertext'>
+      <text class='nickname'>{{nickname}}</text>
+      <view class='userinfo-details'>
+        <text class='userid'>微足迹ID：{{userID}}</text>
+        <image class='m-arrow' src='{{arrow}}'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-list menu  sm-border card-menu margin-top">
+    <view class="cu-item arrow" data-which="1" bindtap='clickList'>
+      <view class="content">
+        <image src="{{footprintIcon}}" class="png" mode="aspectFit"></image>
+        <text class="text-grey">足迹</text>
+      </view>
+    </view>
+
+    <view class="cu-item arrow" data-which="2" bindtap='clickList'>
+      <view class="content">
+        <image src="{{collectionIcon}}" class="png" mode="aspectFit"></image>
+        <text class="text-grey">收藏</text>
+      </view>
+    </view>
+    <view class="cu-item arrow" data-which="3" bindtap='clickList'>
+      <view class="content">
+        <image src="{{albumIcon}}" class="png" mode="aspectFit"></image>
+        <text class="text-grey">相册</text>
+      </view>
+    </view>
+    <view class="cu-item arrow" data-which="4" bindtap='clickList'>
+      <view class="content">
+        <image src="{{shareIcon}}" class="png" mode="aspectFit"></image>
+        <text class="text-grey">周边</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-list menu margin-top" data-which="5" bindtap='clickList'>
+    <view class="cu-item arrow">
+      <view class="content">
+        <image src="{{elseIcon}}" class="png" mode="aspectFit"></image>
+        <text class="text-grey">其他</text>
+      </view>
+    </view>
+  </view>
+</view>

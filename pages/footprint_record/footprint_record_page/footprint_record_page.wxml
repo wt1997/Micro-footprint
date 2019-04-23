@@ -1,0 +1,64 @@
+<!--pages/footprint_record/footprint_record_page/footprint_record_page.wxml-->
+<view class='all'>
+  <view class='m-card margin-top'>
+    <view class='m-title'>
+      <text class='title-text'>{{recordText}}</text>
+      <image class='title-image' src='{{recordImage}}'></image>
+    </view>
+    <textarea class='m-recordtextarea' placeholder='{{inputText}}' placeholder-class='m-placeholder' bindconfirm="saveDeeds" bindblur="getDeeds"></textarea>
+  </view>
+ 
+   <view class="cu-form-group margin-top t-card">
+    <view class="title">日期选择</view>
+    <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+      <view class="picker">
+        {{date}}
+      </view>
+    </picker>
+  </view>
+
+  <view class='m-card margin-top'>
+    <view class='m-title'>
+      <text class='title-text'>{{recordAd}}</text>
+      <image class='title-image' src='{{adImage}}'></image>
+    </view>
+    <view class='m-title' style='margin-top: 16rpx;'>
+    <text class='title-text' style='color:gray '>{{recordAdDetails}}</text>
+    </view>
+  </view>
+
+  <view class='m-card margin-top' style='padding-top: 10rpx;padding-bottom: 10rpx;'>
+      <view class="cu-bar bg-white">
+    <view class="action">
+      图片上传
+    </view>
+    <view class="action">
+      {{imgList.length}}/4
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="grid col-4 grid-square flex-sub">
+      <view class="padding-xs bg-img" style="background-image:url({{imgList[index]}})" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="icon-close"></text>
+        </view>
+      </view>
+      <view class="padding-xs solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+        <text class="icon-cameraadd"></text>
+      </view>
+    </view>
+    </view>
+  </view>
+
+  <view class='m-card margin-top' style='padding-top: 5rpx;padding-bottom: 5rpx;'>
+    <view class="cu-form-group">
+      <view class="title">分享</view>
+      <switch class="green sm" checked></switch>
+    </view>
+  </view>
+
+  <view class="padding flex flex-direction" aria-role='button' style='margin-left: 70%; margin-right: 12rpx;'>
+    <button class="cu-btn bg-green lg">{{save}}</button>
+  </view>
+
+</view>

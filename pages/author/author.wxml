@@ -1,0 +1,30 @@
+<!--pages/author/author.wxml-->
+<view class='all bg-white'>
+  <view class='t-one'>
+    <view class="bg-gradual-blue">
+      <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-black response" style="height:100rpx"></image>
+    </view>  
+  </view>
+
+  <view class="c-two">
+    <view class="bg-white flex-sub">
+      <image src="https://image.weilanwl.com/gif/rhomb-white.gif" mode="aspectFit" class="gif-white response" style="height:240rpx"></image>
+    </view>
+  </view>
+  <view class="padding-sm">
+    <view class="margin-tb-sm text-center">
+      <button class="cu-btn round line-cyan shadow lg" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信登录</button>
+    </view>
+  </view>
+  <view class="c-two">
+    <view class="bg-white flex-sub">
+      <image src="https://image.weilanwl.com/gif/rhomb-white.gif" mode="aspectFit" class="gif-white response" style="height:240rpx;transform:rotate(180deg)"></image>
+    </view>
+  </view>
+
+  <view class='b-three'>
+    <view class="bg-gradual-blue">
+      <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-black response" style="height:100rpx;transform:rotate(180deg)"></image>
+    </view>  
+  </view>
+</view>

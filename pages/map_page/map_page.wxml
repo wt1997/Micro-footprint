@@ -1,0 +1,16 @@
+<!--pages/map_page/map_page.wxml-->
+<map
+  id='mainMap'
+  style='width: 100%; height: 100vh'
+  scale='16'
+  subkey='{{subkey}}'
+  markers='{{markers}}'
+  longitude='{{longitude}}'
+  latitude='{{latitude}}'>
+  <cover-view>
+    <cover-image class="m-btn m-btn-a {{isHide?'none':''}}" src='{{mainIcon}}' data-which='0' bindtap='clickItem'></cover-image>
+    <cover-image class="m-btn m-btn-b {{isShow?'':'none'}}" src='{{recordIcon}}' data-which='1' bindtap='clickItem'></cover-image>
+    <cover-image class="m-btn-f m-btn-c {{isShow?'':'none'}}" src='{{findIcon}}' data-which='2' bindtap='clickItem'></cover-image>
+    <cover-image class="m-btn m-btn-d {{isShow?'':'none'}}" src='{{userIcon}}' data-which='3' bindtap='clickItem'></cover-image>
+  </cover-view>
+</map>

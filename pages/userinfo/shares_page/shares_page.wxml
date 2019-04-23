@@ -1,0 +1,59 @@
+<!--pages/shares_page/shares_page.wxml-->
+<view class="cu-timeline" wx:for="{{all}}" wx:key="id">
+  <!-- 时间轴的时间节点 -->
+  <view class="cu-time">{{item.lineTime}}</view>
+
+  <view class="cu-item {{item.nodeColor}}" wx:for="{{item.mshare}}" wx:for-item="node" wx:key="id"> 
+    <view class='m-border'>
+      <view class="{{item.bgColor}} shadow-blur content radius" >
+        <view class="cu-list menu-avatar radius">
+
+
+          <!-- 时间轴右侧内容start -->
+          <view class="cu-card case no-card" data-which="{{node.id}}" bindtap='clikCard'>
+            <view class="cu-item shadow">
+              <view class="image">
+                <image src="{{node.photo}}" mode="widthFix"></image>
+                <view class="cu-tag bg-blue">{{node.mark}}</view>
+                <view class="cu-bar bg-shadeBottom">
+                  <text class="text-cut">{{node.description}}</text>
+                </view>
+              </view>
+              <view class="cu-list menu-avatar">
+                <view class="cu-item">
+                  <view class="cu-avatar round lg" style="background-image:url({{node.avatar}});"></view>
+                  <view class="content flex-sub">
+                    <view class="text-grey">{{node.nickname}}</view>
+                    <view class="text-gray text-sm flex justify-between">
+                      {{node.time}}
+                      <view class="text-gray text-sm">
+                        <text class="icon-attentionfill margin-lr-xs"></text> {{node.browse}}
+                        <text class="icon-appreciatefill margin-lr-xs"></text> {{node.awesome}}
+                        <text class="icon-messagefill margin-lr-xs"></text> {{node.comment}}
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        <!-- 时间轴右侧内容end -->
+
+        </view>
+      </view>
+    </view>
+  </view>
+
+ </view>
+
+
+
+
+
+
+
+
+
+
+
+

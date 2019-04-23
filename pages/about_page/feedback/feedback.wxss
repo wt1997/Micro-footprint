@@ -1,0 +1,38 @@
+/* pages/about_page/feedback/feedback.wxss */
+.m-all{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.m-textarea{
+  width: 100vh;
+  height: 400rpx;
+  font-size: 36rpx;
+}
+
+.m-view{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.m-right{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: right;
+}
+
+.m-title{
+  display: flex;
+}
+
+.m-title-icon{
+  width: 54rpx;
+  height: 54rpx;
+}
+
+.m-title-text{
+  font-size: 38rpx;
+  color: grey;
+  margin-left: 8rpx;
+}

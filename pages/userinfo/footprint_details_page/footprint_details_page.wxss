@@ -1,0 +1,41 @@
+/* pages/footprint_details_page/footprint_details_page.wxss */
+.m-round{
+  border-radius: 10rpx;
+}
+
+.m-line{
+  height: 2rpx;
+  background-color: #ededed;
+}
+
+.m-short-line{
+  background-color: #ededed;
+  height: 2rpx;
+  margin-right: 30%;
+}
+
+.m-right-line{
+  background-color: #ededed;
+  height: 2rpx;
+  margin-left: 70%;
+}
+
+.m-text-font{
+  font-size: 32rpx;
+  line-height: 48rpx;
+  color: black;
+}
+
+.m-time{
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+}
+
+.m-time-font{
+  font-size: 30rpx;
+  color: grey;
+}
+
+.to-right{
+  margin-left: 71%;
+}

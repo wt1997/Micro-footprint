@@ -1,0 +1,15 @@
+<!--pages/about_page/feedback/feedback.wxml-->
+<view class='m-all'>
+  <view class='m-title margin-top margin-left padding-top'>
+    <image class='m-title-icon' src='{{titleIcon}}'></image>
+    <text class='m-title-text'>{{titleText}}</text>
+  </view>
+  <view class='m-view padding'>
+    <textarea class='m-textarea bg-white radius shadow-warp padding' placeholder-style='color: green;' focus='true'></textarea>
+  </view>
+  <view class="padding-sm m-right">
+    <view class="margin-tb-sm text-center">
+      <button class="cu-btn line-mauve shadow lg">反馈</button>
+    </view>
+  </view>
+</view>
