@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/author/author",
     "pages/footprint_record/footprint_record_page/footprint_record_page",
     "pages/userinfo/user_info_page/user_info_page",
-    "pages/author/author",
     "pages/map_page/map_page",
     "pages/about_page/feedback/feedback",
     "pages/about_page/about_wzj/about_wzj",

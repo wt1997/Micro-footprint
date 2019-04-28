@@ -90,6 +90,7 @@ Page({
   onShareAppMessage: function () {
   
   },
+  //日期选择
   DateChange(e) {
     this.setData({
       date: e.detail.value
@@ -135,27 +136,20 @@ Page({
       }
     })
   },
+  //内容
   getDeeds: function(mData) {
     this.setData({
       textAreaInfo: mData.detail.value
     })
     console.log("getDeeds-"+mData.detail.value);
-    console.log("-------"+this.data.textAreaInfo);
-  },
-  getDate: function(mData) {
-    console.log("getDate"+mData);
   },
   getPlace: function(mData) {
     console.log("getPlace" + mData);
-  },
-  getPhotos: function(mData) {
-    console.log("getPhotos"+mData);
   },
   getIsShare: function (mData) {
     this.setData({
       isShare: mData.detail.value
     })
-    console.log("getIsShare-" + mData.detail.value);
   },
   saveRecord: function(mData) {
     const that = this;

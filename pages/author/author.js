@@ -89,14 +89,17 @@ Page({
       success: e=>{
         console.log(e);
         //存储成功
-        if(e.data == 0){
+        if(e.data.userId == app.globalData.openId){
+          console.log("e.data.userId" + e.data.userId);
+          console.log("app.globalData.openId"+ app.globalData.openId);
+          var mOpenId = app.globalData.openId;
           //用户第一次登录将用户信息缓存至本地
           wx.setStorage({
             key: 'openId',
-            data: app.globalData.userInfo.openId
+            data: mOpenId
           })
           //页面跳转
-          wx.redirectTo({
+          wx.reLaunch({
             url: '/pages/map_page/map_page',
           })
         }
