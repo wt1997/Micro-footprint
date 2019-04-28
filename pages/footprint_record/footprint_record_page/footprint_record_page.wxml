@@ -58,7 +58,7 @@
   </view>
 
   <view class="padding flex flex-direction" aria-role='button' style='margin-left: 70%; margin-right: 12rpx;'>
-    <button class="cu-btn bg-green lg" bindtap='saveRecord'>{{save}}</button>
+    <button class="cu-btn bg-green lg" bindtap='saveRecord' disabled="{{}}">{{save}}</button>
   </view>
 
 </view>

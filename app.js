@@ -73,6 +73,8 @@ App({
         console.log(res.data);
         //获取到用户后的数据处理
         that.globalData.openId = openId;
+        that.globalData.userInfo = res.data;
+        console.log(res.data)
         //跳过登录页
         wx.reLaunch({
           url: '/pages/map_page/map_page',

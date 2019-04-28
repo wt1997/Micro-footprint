@@ -5,7 +5,7 @@
     <view class='usertext'>
       <text class='nickname'>{{nickname}}</text>
       <view class='userinfo-details'>
-        <text class='userid'>微足迹ID：{{userID}}</text>
+        <text class='userid'>签名：{{userSignature}}</text>
         <image class='m-arrow' src='{{arrow}}'></image>
       </view>
     </view>

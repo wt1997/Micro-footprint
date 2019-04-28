@@ -27,7 +27,8 @@ Page({
     date: '2019-04-10',
     imgList: [],
     textAreaInfo: '',
-    isShare: true
+    isShare: true,
+    saveDisabled: false
   },
 
   /**
@@ -157,35 +158,44 @@ Page({
     var saveLength = that.data.imgList.length;
     var saveSucess = 0;
     var saveFail = 0;
+    //文字描述和图片一项不为空
+    if (that.data.textAreaInfo.length > 0 || (saveLength != 0)){
+      that.setData({
+        saveDisabled: true
+      })
+      wx.request({
+        data: {
+          content: that.data.textAreaInfo,
+          date: that.data.date,
+          place: that.data.recordAdDetails,
+          isShare: that.data.isShare,
+          openId: app.globalData.openId
+        },
+        url: app.globalData.ipAd + '/save/recordInfo',
+        success: res => {
+          const recordId = res.data.recordId;
+          console.log(res.data.recordId);
+          //判断用户上传图片数量
+          if (saveLength != 0) {
+            that.uploadPhoto(that.data.imgList, saveIndex, saveLength, saveSucess, saveFail, recordId);
+          }
+        },
+        fail: res => {
+
+        },
+        complete: res => {
+          wx.redirectTo({
+            url: '/pages/map_page/map_page',
+          })
+          console.log("传输完成：" + res.data);
+        }
+      })
+    }
     console.log("内容---" + this.data.textAreaInfo)
     console.log("时间---" + this.data.date)
     console.log("地点---" + this.data.recordAdDetails)
     console.log("图片---" + this.data.imgList)
     console.log("分享---" + this.data.isShare);
-    wx.request({
-      data: {
-        content: that.data.textAreaInfo,
-        date: that.data.date,
-        place: that.data.recordAdDetails,
-        isShare: that.data.isShare,
-        openId: app.globalData.openId
-      },
-      url: app.globalData.ipAd + '/save/recordInfo',
-      success: res => {
-        const recordId = res.data.recordId;
-        console.log(res.data.recordId);
-        //判断用户上传图片数量
-        if (saveLength != 0){
-          that.uploadPhoto(that.data.imgList, saveIndex, saveLength, saveSucess, saveFail, recordId);
-        }
-      },
-      fail: res => {
-        
-      },
-      complete: res => {
-        console.log("传输完成：" + res.data);
-      }
-    })
     console.log("保存完成");
   },
   uploadPhoto: function(filePath,i,length,sucessUp,failUp,recordId){

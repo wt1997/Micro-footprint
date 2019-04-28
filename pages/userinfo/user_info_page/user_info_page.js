@@ -5,22 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatar: 'http://127.0.0.1:8011/image/151527080.png',
+    avatar: '',
     arrow: '/images/icon/arrow.png',
     footprintIcon: '/images/icon/zuji.png',
     collectionIcon: '/images/icon/collection.png',
     albumIcon: '/images/icon/album.png',
     shareIcon: '/images/icon/share.png',
     elseIcon: '/images/icon/else.png',
-    nickname: 'Update',
-    userID: 'wt17864154940'
+    nickname: 'Null',
+    userSignature: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      avatar: app.globalData.userInfo.userAvatar,
+      nickname: app.globalData.userInfo.userNickname,
+      userSignature: app.globalData.userInfo.userSignature
+    })
   },
 
   /**
