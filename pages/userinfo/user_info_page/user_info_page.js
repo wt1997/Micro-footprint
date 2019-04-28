@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatar: 'https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEIRvaH2GsV6TcCmo25EC9Gspvial16ZCSOjibKs6gO8xqfdZic6XBibepKNHsIZTSNLQQOmWFib9qbXWAg/132',
+    avatar: 'http://127.0.0.1:8011/image/151527080.png',
     arrow: '/images/icon/arrow.png',
     footprintIcon: '/images/icon/zuji.png',
     collectionIcon: '/images/icon/collection.png',

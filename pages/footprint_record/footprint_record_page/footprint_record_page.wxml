@@ -5,7 +5,7 @@
       <text class='title-text'>{{recordText}}</text>
       <image class='title-image' src='{{recordImage}}'></image>
     </view>
-    <textarea class='m-recordtextarea' placeholder='{{inputText}}' placeholder-class='m-placeholder' bindconfirm="saveDeeds" bindblur="getDeeds"></textarea>
+    <textarea class='m-recordtextarea' placeholder='{{inputText}}' placeholder-class='m-placeholder' bindconfirm="getDeeds" bindblur="getDeeds"></textarea>
   </view>
  
    <view class="cu-form-group margin-top t-card">
@@ -53,12 +53,12 @@
   <view class='m-card margin-top' style='padding-top: 5rpx;padding-bottom: 5rpx;'>
     <view class="cu-form-group">
       <view class="title">分享</view>
-      <switch class="green sm" checked></switch>
+      <switch class="green sm" checked bindchange='getIsShare'></switch>
     </view>
   </view>
 
   <view class="padding flex flex-direction" aria-role='button' style='margin-left: 70%; margin-right: 12rpx;'>
-    <button class="cu-btn bg-green lg">{{save}}</button>
+    <button class="cu-btn bg-green lg" bindtap='saveRecord'>{{save}}</button>
   </view>
 
 </view>

@@ -20,8 +20,8 @@ App({
   globalData: {
     appsecret: 'e13e75d0d0018ce42bd04c7af3464382',
     userInfo: null,
-    openId: null,
-    ipAd: 'http://192.168.43.64:8080',
+    openId: 'wt17864154940',
+    ipAd: 'http://10.27.225.65:9999',
     sigNature: '以梦为马，不负韶华'
   },
   /**自定义函数**/
@@ -62,7 +62,7 @@ App({
       data: {
         openId: res
       },
-      url: 'http://192.168.43.64:8080/obtain/user',
+      url: 'http://localhost:8011/obtain/user',
       success: res=>{
         console.log(res);
         //获取到用户后的数据处理

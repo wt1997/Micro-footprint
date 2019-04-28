@@ -1,4 +1,6 @@
 // pages/footprint_record/footprint_record_page/footprint_record_page.js
+const app = getApp();
+var util = require('/../../../utils/util.js');
 Page({
 
   /**
@@ -24,13 +26,20 @@ Page({
     save: '保存',
     date: '2019-04-10',
     imgList: [],
+    textAreaInfo: '',
+    isShare: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    const time = util.formatTime(new Date());
+    
+    this.setData({
+      date: time
+    })
+    console.log("time=" + time);
   },
 
   /**
@@ -127,11 +136,93 @@ Page({
     })
   },
   getDeeds: function(mData) {
-    if(mData && mData != null){
-
-    }else{
-      console.log("输入框为空");
-    }
-    console.log(mData.detail.value)
-  }
+    this.setData({
+      textAreaInfo: mData.detail.value
+    })
+    console.log("getDeeds-"+mData.detail.value);
+    console.log("-------"+this.data.textAreaInfo);
+  },
+  getDate: function(mData) {
+    console.log("getDate"+mData);
+  },
+  getPlace: function(mData) {
+    console.log("getPlace" + mData);
+  },
+  getPhotos: function(mData) {
+    console.log("getPhotos"+mData);
+  },
+  getIsShare: function (mData) {
+    this.setData({
+      isShare: mData.detail.value
+    })
+    console.log("getIsShare-" + mData.detail.value);
+  },
+  saveRecord: function(mData) {
+    const that = this;
+    var saveIndex = 0;
+    var saveLength = that.data.imgList.length;
+    var saveSucess = 0;
+    var saveFail = 0;
+    console.log("内容---" + this.data.textAreaInfo)
+    console.log("时间---" + this.data.date)
+    console.log("地点---" + this.data.recordAdDetails)
+    console.log("图片---" + this.data.imgList)
+    console.log("分享---" + this.data.isShare);
+    wx.request({
+      data: {
+        content: that.data.textAreaInfo,
+        date: that.data.date,
+        place: that.data.recordAdDetails,
+        isShare: that.data.isShare,
+        openId: app.globalData.openId
+      },
+      url: app.globalData.ipAd + '/save/recordInfo',
+      success: res => {
+        const recordId = res.data.recordId;
+        console.log(res.data.recordId);
+        //判断用户上传图片数量
+        if (saveLength != 0){
+          that.uploadPhoto(that.data.imgList, saveIndex, saveLength, saveSucess, saveFail, recordId);
+        }
+      },
+      fail: res => {
+        
+      },
+      complete: res => {
+        console.log("传输完成：" + res.data);
+      }
+    })
+    console.log("保存完成");
+  },
+  uploadPhoto: function(filePath,i,length,sucessUp,failUp,recordId){
+    const that = this;
+    wx.uploadFile({
+      url: app.globalData.ipAd+'/save/picture',
+      filePath: filePath[i],
+      header: {
+        'content-type': 'multipart/form-data'
+      },
+      name: 'photo',
+      formData: {
+        id: recordId+i,
+        recordId: recordId,
+        userId: app.globalData.openId
+      },
+      success: res =>{
+        sucessUp++;
+      },
+      fail: res =>{
+        failUp++;
+      },
+      complete: res =>{
+        i++;
+        if(i == length){
+          console.log("上传图片完成:" + "成功：" + sucessUp + "失败：" + failUp);
+        }else{
+          that.uploadPhoto(filePath,i,length,sucessUp,failUp,recordId);
+        }
+      }
+    })
+  },
+  
 })
