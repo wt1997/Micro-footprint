@@ -1,4 +1,5 @@
 // pages/footprint_details_page/footprint_details_page.js
+var app = getApp();
 Page({
 
   /**
@@ -38,22 +39,28 @@ Page({
       id: 6,
       type: 'image',
       url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
-    }]
+    }],
+    record: '',
+    index: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.towerSwiper('swiperList');
-    // 初始化towerSwiper 传已有的数组名即可
+  onLoad: function (res) {
+    console.log("record=" + res.index);
+    this.setData({
+      index: res.index,
+      record: app.globalData.recordMap[res.index]
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.towerSwiper('swiperList');
+    // 初始化towerSwiper 传已有的数组名即可
   },
 
   /**

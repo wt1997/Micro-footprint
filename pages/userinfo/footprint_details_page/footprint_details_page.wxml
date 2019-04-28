@@ -1,10 +1,9 @@
 <!--pages/footprint_details_page/footprint_details_page.wxml-->
 <view class="margin-top bg-white">
   <swiper class="card-swiper square-dot}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
-    <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <swiper-item wx:for="{{record.photoList}}" wx:key class="{{cardCur==index?'cur':''}}">
       <view class="swiper-item">
-        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+        <image src="{{item}}" mode="aspectFill"></image>
       </view>
     </swiper-item>
   </swiper>
@@ -15,7 +14,7 @@
     <view class="cu-item">
       <view class="content">
         <image src="{{detailAd}}" class="png" mode="aspectFit"></image>
-        <text class="text-grey">{{address}}</text>
+        <text class="text-grey">{{record.place}}</text>
       </view>
     </view>
   </view>
@@ -24,7 +23,7 @@
   </view>
 
   <view class="padding bg-white">
-    <view class="text-left padding m-text-font">{{description}}</view>
+    <view class="text-left padding m-text-font">{{record.content}}</view>
   </view>
 
   <view class="bg-white">

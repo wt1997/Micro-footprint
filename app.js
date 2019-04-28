@@ -25,7 +25,8 @@ App({
     userInfo: null,
     openId: 'wt17864154940',
     ipAd: 'http://192.168.31.141:9999',
-    sigNature: '以梦为马，不负韶华'
+    sigNature: '以梦为马，不负韶华',
+    recordMap: ''
   },
   /**自定义函数**/
   //wx.login重新登录获取用户信息
