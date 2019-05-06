@@ -1,95 +1,36 @@
 // pages/shares_page/shares_page.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    all: [
-      {
-        id: '1',
-        lineTime: '19-04',
-        nodeColor: 'text-blue',
-        bgColor: 'bg-grey',
-        mshare: [
-          {
-            id: '1',
-            photo: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg',
-            description: '我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。',
-            avatar: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg',
-            nickname: '正义天使 凯尔',
-            time: '04-15',
-            browse: '21',
-            awesome: '12',
-            mark: '游记',
-            comment: '10'
-          },
-          {
-            id: '2',
-            photo: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10002.jpg',
-            description: '我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。',
-            avatar: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10002.jpg',
-            nickname: '堕落的天使 莫甘娜',
-            time: '04-14',
-            browse: '25',
-            awesome: '11',
-            mark: '随拍',
-            comment: '3'
-          },
-          {
-            id: '3',
-            photo: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10003.jpg',
-            description: '我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。',
-            avatar: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10003.jpg',
-            nickname: '神拳 李青',
-            time: '04-12',
-            browse: '34',
-            awesome: '21',
-            mark: '心情',
-            comment: '10'
-          }
-        ]
-      },
-      {
-        id: '2',
-        lineTime: '19-03',
-        nodeColor: 'text-red',
-        bgColor: 'bg-grey',
-        mshare: [
-          {
-            id: '1',
-            photo: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10004.jpg',
-            description: '我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。',
-            avatar: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10004.jpg',
-            nickname: '源计划 联合 艾希',
-            time: '03-26',
-            browse: '143',
-            awesome: '122',
-            mark: '风景',
-            comment: '65'
-          },
-          {
-            id: '1',
-            photo: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10005.jpg',
-            description: '我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。',
-            avatar: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10005.jpg',
-            nickname: '源计划 自由 艾克',
-            time: '03-22',
-            browse: '76',
-            awesome: '30',
-            mark: '游戏',
-            comment: '20'
-          }
-        ]
-      }
-      ],
+    palceInfo: {
+      placeName: '山东省济南市山东大学（中心校区）',
+      longitude: '1',
+      latitude: '1'
+    },
+    surroundRecord: '',
+    time: '04-15',
+    browse: '21',
+    awesome: '12',
+    mark: '游记',
+    comment: '10',
+    avatar: '',
+    nickname: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      avatar: app.globalData.userInfo.userAvatar,
+      nickname: app.globalData.userInfo.userNickname,
+    })
+    //获取附近的记录
+    this.getShareInfo(this.data.palceInfo);
   },
 
   /**
@@ -142,9 +83,36 @@ Page({
   },
   clikCard: function (mData) {
     //记录ID
-    var recordID = mData.currentTarget.dataset.which;
+    var pIndex = mData.currentTarget.dataset.mparent;
+    var cIndex = mData.currentTarget.dataset.mchild;
+    console.log("pIndex="+pIndex);
+    console.log("cIndex=" + cIndex);
     wx.navigateTo({
-      url: '/pages/userinfo/footprint_details_page/footprint_details_page?id=' + recordID,
+      url: '/pages/userinfo/footprint_details_page/footprint_details_page?which=share&pIndex=' + pIndex +'&cIndex='+cIndex,
+    })
+  },
+  getShareInfo: function (palceInfo){
+    var that = this;
+    const placeName = palceInfo.placeName;
+    const longitude = palceInfo.longitude;
+    const latitude = palceInfo.latitude;
+    wx.request({
+      data: {
+        placeName: placeName,
+        placeLongitude: longitude,
+        placeLatitude: latitude
+      },
+      url: app.globalData.ipAd +'/get/surrounding',
+      success(res){
+        that.setData({
+          surroundRecord: res.data
+        })
+        app.globalData.surroundRecordList = res.data;
+        console.log("/get/sunrroundRecord：" + res.data[0].lineTime);
+      },
+      fail(res){
+
+      }
     })
   }
 })

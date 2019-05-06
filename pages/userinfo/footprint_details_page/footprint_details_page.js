@@ -48,11 +48,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (res) {
+    const which = res.which;
     console.log("record=" + res.index);
-    this.setData({
-      index: res.index,
-      record: app.globalData.recordMap[res.index]
-    })
+    console.log("which=" + res.which);
+    console.log("pIndex=" + res.pIndex);
+    console.log("cIndex=" + res.cIndex);
+    if (which == 'share'){
+      this.setData({
+        index: res.cIndex,
+        record: app.globalData.surroundRecordList[res.pIndex].recordList[res.cIndex]
+      })
+    }else{
+      this.setData({
+        index: res.index,
+        record: app.globalData.recordMap[res.index]
+      })
+    }
   },
 
   /**
