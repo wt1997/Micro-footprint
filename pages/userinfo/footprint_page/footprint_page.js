@@ -7,43 +7,8 @@ Page({
    */
   data: {
     avatar: '',
-    footprint: [
-      {
-        id: 0,
-        avatar: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
-        title: '随笔',
-        description: '我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。',
-        nickename: '天使  凯尔',
-        time: '2019/04/12',
-        browse: '56',
-        appreciate: '21',
-        comment: '12'
-      },
-      {
-        id: 1,
-        avatar: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
-        title: '勇者',
-        description: '我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。',
-        nickename: '天使  凯尔',
-        time: '2019/04/12',
-        browse: '56',
-        appreciate: '21',
-        comment: '12'
-      },
-      {
-        id: 2,
-        avatar: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg',
-        title: '天使',
-        description: '我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。',
-        nickename: '天使  凯尔',
-        time: '2019/04/12',
-        browse: '56',
-        appreciate: '21',
-        comment: '12'
-      }
-      ],
-      recordInfo: [],
-      nickName: ''
+    recordInfo: [],
+    nickName: ''
   },
 
   /**

@@ -57,6 +57,9 @@ Page({
               height: '30px'
             }]
           })
+          //将用户所在经纬度存储到全局变量
+          mp.globalData.longitude = res.longitude;
+          mp.globalData.latitude = res.latitude;
         }
     })
     console.log("----------"+mp.globalData.userInfo);

@@ -27,7 +27,9 @@ App({
     ipAd: 'http://192.168.31.141:9999',
     sigNature: '以梦为马，不负韶华',
     recordMap: '',
-    surroundRecordList: ''
+    surroundRecordList: '',
+    longitude: '',
+    latitude: ''
   },
   /**自定义函数**/
   //wx.login重新登录获取用户信息

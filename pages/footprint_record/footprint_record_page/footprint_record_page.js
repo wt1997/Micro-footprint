@@ -1,3 +1,4 @@
+
 // pages/footprint_record/footprint_record_page/footprint_record_page.js
 const app = getApp();
 var util = require('/../../../utils/util.js');
@@ -96,6 +97,7 @@ Page({
     this.setData({
       date: e.detail.value
     })
+    console.log("date="+this.data.date);
   },
   ViewImage(e) {
     wx.previewImage({

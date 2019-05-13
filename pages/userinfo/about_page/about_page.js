@@ -101,6 +101,10 @@ Page({
         })
         break;
       case '3':
+      wx.removeStorageSync('openId');
+        wx.reLaunch({
+          url: '/pages/author/author',
+        })
         break;
     }
   }

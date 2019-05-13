@@ -1,20 +1,27 @@
 // pages/userinfo/user_info_change/user_info_change.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    nickname: 'Update',
-    signature: '以梦为马,不负年华',
-    oldsn: '以梦为马,不负年华'
+    nickname: '',
+    userSignature: '',
+    oldsn: '',
+    avatar: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      avatar: app.globalData.userInfo.userAvatar,
+      nickname: app.globalData.userInfo.userNickname,
+      userSignature: app.globalData.userInfo.userSignature,
+      oldsn: app.globalData.userInfo.userSignature
+    })
   },
 
   /**

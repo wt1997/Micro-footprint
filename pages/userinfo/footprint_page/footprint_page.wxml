@@ -15,7 +15,7 @@
           <view class="content flex-sub">
             <view class="text-grey">{{nickName}}</view>
             <view class="text-gray text-sm flex justify-between">
-              2019-04-12
+              {{item.time}}
               <view class="text-gray text-sm">
                 <text class="icon-attentionfill margin-lr-xs"></text> 56
                 <text class="icon-appreciatefill margin-lr-xs"></text> 12
