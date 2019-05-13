@@ -29,7 +29,11 @@ Page({
     imgList: [],
     textAreaInfo: '',
     isShare: true,
-    saveDisabled: false
+    saveDisabled: false,
+    key: 'W7XBZ-KQCWQ-MNK5F-GA6RM-CLJBJ-YZFOZ',
+    latitude: '',
+    longitude: '',
+    address: ''
   },
 
   /**
@@ -42,55 +46,6 @@ Page({
       date: time
     })
     console.log("time=" + time);
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
   },
   //日期选择
   DateChange(e) {
@@ -180,6 +135,7 @@ Page({
           //判断用户上传图片数量
           if (saveLength != 0) {
             that.uploadPhoto(that.data.imgList, saveIndex, saveLength, saveSucess, saveFail, recordId);
+            that.savePlace(recordId);
           }
         },
         fail: res => {
@@ -212,6 +168,7 @@ Page({
       formData: {
         id: recordId+i,
         recordId: recordId,
+        date: that.data.date,
         userId: app.globalData.openId
       },
       success: res =>{
@@ -230,5 +187,39 @@ Page({
       }
     })
   },
-  
+  location(e){
+    const that = this;
+    wx.chooseLocation({
+      success: function(res) {
+        that.setData({
+          recordAdDetails: res.name,
+          latitude: res.latitude,
+          longitude: res.longitude,
+          address: res.address
+        })
+        console.log("详细地址："+res.address);
+      },
+    })
+  },
+  savePlace(recordId){
+    const that = this;
+    wx.request({
+      data:{
+        placeName: that.data.recordAdDetails,
+        longitude: that.data.longitude,
+        latitude: that.data.latitude,
+        recordId: recordId,
+        address: that.data.address
+      },
+      url: app.globalData.ipAd+'/save/place',
+      sucess(e){
+        if(e.data.code == '0000'){
+          console.log("保存地址成功");
+        }
+      },
+      fail(e){
+
+      }
+    })
+  }
 })

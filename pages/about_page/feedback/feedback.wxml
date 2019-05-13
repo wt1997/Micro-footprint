@@ -5,11 +5,11 @@
     <text class='m-title-text'>{{titleText}}</text>
   </view>
   <view class='m-view padding'>
-    <textarea class='m-textarea bg-white radius shadow-warp padding' placeholder-style='color: green;' focus='true'></textarea>
+    <textarea class='m-textarea bg-white radius shadow-warp padding' placeholder-style='color: green;' focus='true' bindinput='getFeedbackInfo'></textarea>
   </view>
   <view class="padding-sm m-right">
     <view class="margin-tb-sm text-center">
-      <button class="cu-btn line-mauve shadow lg">反馈</button>
+      <button class="cu-btn line-mauve shadow lg" bindtap='saveInfo'>反馈</button>
     </view>
   </view>
 </view>

@@ -28,6 +28,11 @@ Page({
     this.setData({
       avatar: app.globalData.userInfo.userAvatar,
       nickname: app.globalData.userInfo.userNickname,
+      palceInfo: {
+        placeName: app.globalData.placeName,
+        longitude: app.globalData.longitude,
+        latitude: app.globalData.latitude
+      }
     })
     //获取附近的记录
     this.getShareInfo(this.data.palceInfo);
@@ -39,35 +44,6 @@ Page({
   onReady: function () {
   
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
   /**
    * 页面上拉触底事件的处理函数
    */

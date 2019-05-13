@@ -1,4 +1,5 @@
 // pages/about_page/feedback/feedback.js
+const app = getApp();
 Page({
 
   /**
@@ -6,7 +7,8 @@ Page({
    */
   data: {
     titleIcon: '/images/icon/write.png',
-    titleText: '感谢您的反馈'
+    titleText: '感谢您的反馈',
+    message: ''
   },
 
   /**
@@ -15,53 +17,35 @@ Page({
   onLoad: function (options) {
 
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 获取输入框信息
    */
-  onReady: function () {
-
+  getFeedbackInfo(e){
+    this.setData({
+      message : e.detail.value
+    })
   },
-
   /**
-   * 生命周期函数--监听页面显示
+   * 保存反馈信息
    */
-  onShow: function () {
+  saveInfo(e){
+    const that = this;
+    wx.request({
+      data:{
+        openId: app.globalData.openId,
+        name: app.globalData.userInfo.userNickname,
+        message: that.data.message
+      },
+      url: app.globalData.ipAd+'/save/feedback',
+      success(e){
+        console.log("保存反馈："+e.data);
+        wx.reLaunch({
+          url: '/pages/userinfo/user_info_page/user_info_page',
+        })
+      },
+      fail(e){
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+      }
+    })
   }
 })

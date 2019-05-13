@@ -1,5 +1,5 @@
 <!--pages/album_page/album_page.wxml-->
-<view wx:for="{{ablum}}" wx:key>
+<view wx:for="{{pictures}}" wx:key>
   <view class="cu-bar bg-white margin-top solid-bottom">
     <view class="action">
       <text class="icon-title text-blue"></text>{{item.time}}
@@ -8,7 +8,7 @@
   </view>
   <view class="bg-white padding">
     <view class="grid col-4 grid-square">
-      <view class="bg-img" wx:for="{{item.photo}}" wx:key style="background-image:url({{item}});"></view>
+      <view class="bg-img" wx:for="{{item.picturePath}}" wx:key style="background-image:url({{item}});"></view>
     </view>
   </view>
 </view>

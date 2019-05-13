@@ -1,5 +1,9 @@
 // pages/map_page/map_page.js
 const mp = getApp();
+// 引入SDK核心类
+var QQMapWX = require('/../../qqmap/qqmap-wx-jssdk.js');
+var qqmapsdk;
+
 Page({
   /**
    * 页面的初始数据
@@ -15,7 +19,9 @@ Page({
     subkey: 'W7XBZ-KQCWQ-MNK5F-GA6RM-CLJBJ-YZFOZ',
     visible: 'none',
     isShow: false,
-    isHide: false
+    isHide: false,
+    placeAddress: '',
+    placeName: ''
   },
 
   /**
@@ -24,6 +30,9 @@ Page({
   onLoad: function (options) {
     var avatar = mp.globalData.userInfo.avatarUrl;
     var nickName = mp.globalData.userInfo.nickName;
+    qqmapsdk = new QQMapWX({
+      key: 'W7XBZ-KQCWQ-MNK5F-GA6RM-CLJBJ-YZFOZ'
+    });
   },
 
   /**
@@ -45,7 +54,25 @@ Page({
             longitude: res.longitude,
             latitude: res.latitude
           })
-          
+          qqmapsdk.reverseGeocoder({
+            location: {
+              latitude: my.data.latitude,
+              longitude: my.data.longitude,
+            },
+            success: function(res) {
+              my.setData({
+                placeAddress: res.result.address,
+                placeName: res.result.formatted_addresses.recommend
+              })
+              mp.globalData.placeAddress = res.result.address;
+              mp.globalData.placeName = res.result.formatted_addresses.recommend;
+            },
+            fail(res) {
+
+            }
+          })
+          // console.log(res.longitude);
+          // console.log(res.latitude);
           my.setData({
             markers: [{
               id: 1,
@@ -62,42 +89,11 @@ Page({
           mp.globalData.latitude = res.latitude;
         }
     })
-    console.log("----------"+mp.globalData.userInfo);
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    // console.log("123");
+    // console.log("l" + this.data.longitude);
+    // console.log("t" + this.data.latitude);
+    // console.log("1234");
+    // console.log("----------"+mp.globalData.userInfo);
   },
   /**
    * 主界面点击加号弹出其他图标事件
@@ -134,6 +130,15 @@ Page({
         })
         break;
     }
+  },
+  getPlaceName(res){
+    var that = this;
+    wx.request({
+      url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + that.data.latitude + ',' + that.data.longitude + '+&key=W7XBZ-KQCWQ-MNK5F-GA6RM-CLJBJ-YZFOZ&get_poi=1',
+      success(res) {
+        console("didian" + res.result.address);
+      }
+    })
   }
 
 })

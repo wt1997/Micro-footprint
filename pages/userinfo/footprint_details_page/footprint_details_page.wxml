@@ -31,7 +31,7 @@
   </view>
 
   <view class="bg-white">
-    <view class='m-time to-right m-time-font padding-right'>{{mTime}}</view>
+    <view class='m-time to-right m-time-font padding-right'>{{record.time}}</view>
   </view>
 </view>
 

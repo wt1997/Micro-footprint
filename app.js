@@ -29,7 +29,9 @@ App({
     recordMap: '',
     surroundRecordList: '',
     longitude: '',
-    latitude: ''
+    latitude: '',
+    placeName: '',
+    placeAdress: ''
   },
   /**自定义函数**/
   //wx.login重新登录获取用户信息

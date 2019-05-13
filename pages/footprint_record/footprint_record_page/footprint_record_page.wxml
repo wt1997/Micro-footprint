@@ -17,7 +17,7 @@
     </picker>
   </view>
 
-  <view class='m-card margin-top'>
+  <view class='m-card margin-top' bindtap='location'>
     <view class='m-title'>
       <text class='title-text'>{{recordAd}}</text>
       <image class='title-image' src='{{adImage}}'></image>
